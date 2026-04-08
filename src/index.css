@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;700&display=swap');
+
+:root {
+  /* Color Palette unified with the snowy mountain hero image */
+  --bg-color: #f7f9fa; 
+  --surface-color: #f0f9ff; /* Subtle icy sky blue paper tint */
+  
+  /* Cohesive mountain/sky blue tones for highlights */
+  --primary-color: #0284c7; /* Light sky blue */
+  --primary-color-hover: #0369a1;
+  --primary-light: rgba(2, 132, 199, 0.1);
+  --primary-range-bg: rgba(2, 132, 199, 0.08); 
+  
+  --text-main: #0c4a6e; /* Deep mountain navy for text */
+  --text-muted: #475569;
+  --text-light: #94a3b8;
+  
+  --border-color: #e0f2fe; 
+  --border-light: #f1f5f9;
+  
+  /* Typography */
+  --font-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Outfit', 'Inter', sans-serif;
+  
+  /* Layout & Spacing */
+  --calendar-max-width: 900px;
+  --border-radius-lg: 4px; /* Paper corners are generally sharper */
+  --border-radius-md: 4px;
+  --border-radius-sm: 2px;
+  
+  /* Shadows representing physical depth on a wall under strong directional light */
+  --shadow-sm: inset 0 0 0 1px rgba(0,0,0,0.05); /* Paper edge */
+  --shadow-md: 0 4px 6px -1px rgba(15,23,42,0.1), 0 2px 4px -1px rgba(15,23,42,0.06);
+  
+  /* 
+   * Directional cast shadow: Light from top-left.
+   * Tinted with #0f172a (dark slate) instead of pure black.
+   */
+  --shadow-lg: 
+    1px 0 1px rgba(15, 23, 42, 0.1),
+    6px 15px 25px -5px rgba(15, 23, 42, 0.4),
+    30px 45px 70px -10px rgba(15, 23, 42, 0.6);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  
+  /* Deep directional lighting - top left light source, vignette right */
+  background-color: #94a3b8; /* slate-400 */
+  background-image: 
+    radial-gradient(ellipse at 20% -10%, #e2e8f0 0%, transparent 60%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(15, 23, 42, 0.4) 100%),
+    url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.4' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23a)' opacity='0.05'/%3E%3C/svg%3E");
+  
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  perspective: 1000px; /* Essential for the 3D tilt effect */
+}
+
+@media (min-width: 768px) {
+  body {
+    padding: 4rem 2rem;
+    perspective: 1200px;
+  }
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

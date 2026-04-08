@@ -1,0 +1,86 @@
+.notes-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  /* balanced visual affordance so it equals the calendar grid weight */
+  background-color: rgba(255, 255, 255, 0.65);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03), 0 1px 1px rgba(255, 255, 255, 0.4);
+  padding: 0.5rem 1rem;
+  margin: -0.5rem -1rem; /* absorb padding */
+  border-radius: var(--border-radius-md);
+  transition: all 0.2s ease;
+}
+
+.notes-container:hover {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.notes-container:focus-within {
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.notes-header {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.notes-icon {
+  color: var(--text-light);
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+.notes-container:hover .notes-icon {
+  opacity: 1;
+  color: var(--primary-color);
+}
+
+.notes-textarea {
+  flex: 1;
+  width: 100%;
+  min-height: 250px;
+  resize: none;
+  border: none;
+  background: transparent;
+  font-family: var(--font-base);
+  font-size: 0.875rem;
+  color: var(--text-main);
+  line-height: 32px; /* Exact height for the background rules */
+  padding: 0;
+  /* Stronger contrast for default lines to clearly afford writing */
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 31px,
+    rgba(148, 163, 184, 0.2) 31px,
+    rgba(148, 163, 184, 0.2) 32px
+  );
+  /* The first line sits cleanly beneath the first row of text */
+  background-position: 0 4px;
+}
+
+.notes-textarea:focus {
+  outline: none;
+  /* Highlight the lines slightly when actively writing */
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 31px,
+    var(--primary-light) 31px,
+    var(--primary-light) 32px
+  );
+}
+
+.notes-textarea::placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+  opacity: 0.6;
+}

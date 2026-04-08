@@ -1,0 +1,84 @@
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  background: var(--surface-color);
+}
+
+@media (min-width: 768px) {
+  .hero-container {
+    height: 350px;
+  }
+}
+
+.hero-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.5s ease-in-out;
+  /* Darken the image very slightly to feel printed rather than glowing */
+  filter: brightness(0.95) contrast(1.1);
+}
+
+.hero-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(12, 74, 110, 0.1) 0%, rgba(12, 74, 110, 0.6) 100%);
+}
+
+.hero-shape-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+}
+
+.hero-shape-overlay svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  text-align: right;
+  color: white;
+  font-family: var(--font-heading);
+  z-index: 2;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.hero-year {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  opacity: 0.9;
+  margin-bottom: 0.25rem;
+}
+
+.hero-month {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .hero-year {
+    font-size: 1.75rem;
+  }
+  .hero-month {
+    font-size: 3.5rem;
+  }
+}
